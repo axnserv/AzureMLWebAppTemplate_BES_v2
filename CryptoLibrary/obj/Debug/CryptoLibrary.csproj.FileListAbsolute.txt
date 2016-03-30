@@ -1,0 +1,20 @@
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.csprojResolveAssemblyReference.cache
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.pdb
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.csprojResolveAssemblyReference.cache
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.pdb
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1.9\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1.9\AzureMLInterface1\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1.9\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.csprojResolveAssemblyReference.cache
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1.9\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+E:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1.9\AzureMLInterface1\CryptoLibrary\obj\Debug\CryptoLibrary.pdb
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\new template BES\AzureML BES Web Template\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\new template BES\AzureML BES Web Template\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\new template BES\AzureML BES Web Template\CryptoLibrary\obj\Debug\CryptoLibrary.csprojResolveAssemblyReference.cache
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\new template BES\AzureML BES Web Template\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\new template BES\AzureML BES Web Template\CryptoLibrary\obj\Debug\CryptoLibrary.pdb

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AMLParameterObject>
+  <Url>https://ussouthcentral.services.azureml.net/workspaces/3fd1cd18fcc348178ceb2885b39b588f/services/40d25cd3d9824aff9de8ccdd923f9508/jobs?api-version=2.0</Url>
+  <APIKey>EAAAANvEz8sqbyrBwepl+OohpUKX8tkilOzrXeZABi1CC7uxMXDacFdIqo75vVMuk1PF5gvybGtP3u4MDySrvogM7OmP30SgMGRga4BdTaRQoLsJQUCiuFlvjRRVq6ayjdCN89ZggiG8Bq8db0tUNj3Zv0k=</APIKey>
+  <Title>deFacto_train_score_inputdata</Title>
+  <Description>No description provided for this web service.</Description>
+  <GlobalParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>Data</Name>
+    <Type>string</Type>
+    <Format>script</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+  </GlobalParameter>
+  <BatchInputs>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>input1</Name>
+    <Type />
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+  </BatchInputs>
+  <BatchOutputs>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>output1</Name>
+    <Type />
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+  </BatchOutputs>
+  <Copyright />
+</AMLParameterObject>

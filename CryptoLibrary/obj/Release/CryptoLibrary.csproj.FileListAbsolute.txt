@@ -1,0 +1,5 @@
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Release\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\bin\Release\CryptoLibrary.pdb
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Release\CryptoLibrary.csprojResolveAssemblyReference.cache
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Release\CryptoLibrary.dll
+D:\Dropbox\Career\Microsoft\AzureML\Project\AzureMLInterface1\CryptoLibrary\obj\Release\CryptoLibrary.pdb

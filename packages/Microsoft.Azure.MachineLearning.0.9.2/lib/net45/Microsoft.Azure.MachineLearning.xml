@@ -1,0 +1,889 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.MachineLearning</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.MachineLearning.BatchJob">
+            <summary>
+            Represents a batch job created to run against a machine learning endpoint
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.#ctor(System.String,Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy,Microsoft.Azure.MachineLearning.Logging.ILogger)">
+            <summary>
+            Initializes a new instance of <c>BatchJob</c> with the specified job identifier
+            </summary>
+            <param name="jobId">The unique identifier for this batch job.</param>
+            <param name="apiProxy">Reference to the service client assigned to the endpoint the job was registered against.</param>
+            <param name="logger">Logger instance for tracing functionality behavior.</param>
+            <exception cref="T:System.ArgumentException">jobId is not specified.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.Start">
+            <summary>
+            Schedule a registered job to run on the Azure Machine Learning platform
+            </summary>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.CheckStatus">
+            <summary>
+            Checks the current status of a batch job
+            </summary>
+            <returns>The current status of the job.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.WaitForCompletion">
+            <summary>
+            Monitor a running batch job until its completion
+            </summary>
+            <returns>The job's status upon its completion.</returns>
+            <remarks>A job is considered completed when it reaches any of its possible final states: Finished, Failed or Cancelled.</remarks>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.Cancel">
+            <summary>
+            Cancels a scheduled batch job
+            </summary>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.StartAsync">
+            <summary>
+            Asynchronously schedule a registered job to run on the Azure Machine Learning platform
+            </summary>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously schedule a registered job to run on the Azure Machine Learning platform
+            </summary>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.CheckStatusAsync">
+            <summary>
+            Asynchronously check the current status of a batch job
+            </summary>
+            <returns>Returns a <c>Task</c> which will yield the job's current status once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.CheckStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously check the current status of a batch job
+            </summary>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a <c>Task</c> which will yield the job's current status once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.WaitForCompletionAsync">
+            <summary>
+            Asynchronously monitor a running batch job until its completion
+            </summary>
+            <returns>Returns a <c>Task</c> which will yield the job's status upon its completion.</returns>
+            <remarks>A job is considered completed when it reaches any of its possible final states: Finished, Failed or Cancelled.</remarks>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.WaitForCompletionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously monitor a running batch job until its completion
+            </summary>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a <c>Task</c> which will yield the job's status upon its completion.</returns>
+            <remarks>A job is considered completed when it reaches any of its possible final states: Finished, Failed or Cancelled.</remarks>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.WaitForCompletionAsync(System.TimeSpan,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously monitor a running batch job until its completion or until the provided timeout interval has expired
+            </summary>
+            <param name="pollingInterval">The time interval between consequtive job status polls.</param>
+            <param name="timeoutInterval">The maximum time duration to keep polling for the job status.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a <c>Task</c> which will yield the job's status upon its completion.</returns>
+            <remarks>A job is considered completed when it reaches any of its possible final states: Finished, Failed or Cancelled.</remarks>
+            <exception cref="T:System.ArgumentException">pollingInterval or timeoutInterval are not finite time periods.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.TimeoutException">The operation's duration exceeded the passed in timeoutInterval.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.CancelAsync">
+            <summary>
+            Asynchronously cancel a scheduled batch job
+            </summary>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.BatchJob.CancelAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously cancel a scheduled batch job
+            </summary>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.BatchJob.Id">
+            <summary>
+            Get the job's unique identifier
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.BatchJob.CreatedAt">
+            <summary>
+            Get the job's creation timestamp
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest">
+            <summary>
+            Represents the set of parameters that can be specified when registering a batch job
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest.Input">
+            <summary>
+            Get or set the input data that can be submitted with the batch job
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest.GlobalParameters">
+            <summary>
+            Get or set the global parameters that can be applied to the underlying machine
+            learning experiment as part of the job run
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest.Outputs">
+            <summary>
+            Get or set the user preferred locations for part or all of the output blobs
+            that can be generated by the job's run
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Contracts.BatchJobStatus">
+            <summary>
+            Represents the status of a batch job that was registered with the platform
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobStatus.JobState">
+            <summary>
+            The job's current state
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobStatus.Details">
+            <summary>
+            Detailed information about the current status, if available
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobStatus.Results">
+            <summary>
+            The actual outputs of the batch job, once completed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BatchJobStatus.IsCompleted">
+            <summary>
+            Indicate if the current job is in a completed (finite) state or not
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Contracts.BlobReference">
+            <summary>
+            Represents access data for an Azure blob
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Contracts.BlobReference.CreateFromConnectionStringData(System.String,System.String)">
+            <summary>
+            Creates a <c>BlobReference</c> from the specified access data
+            </summary>
+            <param name="connectionString">Connection string for the storage account hosting the blob.</param>
+            <param name="relativeBlobLocation">The relative location of the blob within the storage account (containerName/blobName).</param>
+            <returns>The <c>BlobReference</c> instance.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Contracts.BlobReference.CreateFromConnectionStringData(System.String,System.String,System.String)">
+            <summary>
+            Creates a <c>BlobReference</c> from the specified access data
+            </summary>
+            <param name="connectionString">Connection string for the storage account hosting the blob.</param>
+            <param name="containerName">The name of the container hosting the blob.</param>
+            <param name="blobName">The name of the Azure blob.</param>
+            <returns>The <c>BlobReference</c> instance.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Contracts.BlobReference.CreateFromSasBlobUri(System.Uri)">
+            <summary>
+             Creates a <c>BlobReference</c> from the specified SAS blob uri
+            </summary>
+            <param name="sasBlobUri">The SAS token based URI for the blob.</param>
+            <returns>The <c>BlobReference</c> instance.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Contracts.BlobReference.BuildSasBlobUri">
+            <summary>
+            Get the full SAS uri for the blob if applicable
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If the <c>BlobReference</c> was specified by storage connection string.</exception>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BlobReference.ConnectionString">
+            <summary>
+            Get the connection string for the storage account hosting the blob
+            </summary>
+            <remarks>Can be <c>null</c> if the blob reference was built from a SAS uri.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BlobReference.BaseLocation">
+            <summary>
+            Get the base path part of the blob storage uri
+            </summary>
+            <remarks>
+            Can be <c>null</c> if the blob reference was built by specifying the storage account's connection string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BlobReference.RelativeLocation">
+            <summary>
+            Get the relative path part of the blob storage uri
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.BlobReference.SasBlobToken">
+            <summary>
+            Get the SAS token part of the blob storage uri
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Contracts.Internal.BatchJobStatusInternal">
+            <summary>
+            Internal contract for the batch job status response as exposed on the REST API
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.Internal.BatchJobStatusInternal.StatusCode">
+            <summary>
+            The job's current status
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.Internal.BatchJobStatusInternal.Details">
+            <summary>
+            Detailed information about the current job status, if available
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Contracts.Internal.BatchJobStatusInternal.Results">
+            <summary>
+            The actual outputs of the batch job, once completed
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Contracts.JobState">
+            <summary>
+            The various possible states for an Azure Machine Learning batch job run
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.Contracts.JobState.NotStarted">
+            <summary>
+            The job was registered with the Azure Machine Learning service, but not explicitly started yet by the user
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.Contracts.JobState.Running">
+            <summary>
+            The job is currently running 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.Contracts.JobState.Failed">
+            <summary>
+            The job run has encountered a failure and stopped running
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.Contracts.JobState.Cancelled">
+            <summary>
+            The job has been explicitly cancelled by the user
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.Contracts.JobState.Finished">
+            <summary>
+            The job has completed running successfully
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">
+            <summary>
+            Thrown when an error is reported back from the runtime APIs of the Azure Machine Learning platform.
+            </summary>
+            <remarks>
+            A sample of such error in JSON notation:
+            
+            {
+              "errorcode": "BadArgument",
+              "message": "Invalid argument provided."
+              "details":
+              [
+                {
+                   "code": "MissingInputBlobInformation",
+                   "message": "Missing Azure storage blob information. Provide a valid connection string and relative path or URI and try again."
+                   "target": "ServiceInputPort"
+                }
+              ]
+            }
+             
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException.ToString">
+            <summary>
+            Convert to a string representation of the current object
+            </summary>
+            <returns>A string representation of a <c>RuntimeException</c> instance.</returns>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException.ErrorCode">
+            <summary>
+            Get the general error code for this error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException.Details">
+            <summary>
+            Get the details for this error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException.IsInternal">
+            <summary>
+            Get the indicator whether this is an internal error or not
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException.InnerMessage">
+            <summary>
+            Get the inner message of this error
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeExceptionDetails">
+            <summary>
+            Represents details associated with a <c>RuntimeException</c>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Exceptions.RuntimeExceptionDetails.ToString">
+            <summary>
+            Convert to a string representation of the current object
+            </summary>
+            <returns>A string representation of a <c>RuntimeExceptionDetails</c> instance.</returns>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeExceptionDetails.Code">
+            <summary>
+            Get the more specific error code for the error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeExceptionDetails.Message">
+            <summary>
+            Get the more specific message detailing the cause of the error
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Exceptions.RuntimeExceptionDetails.Target">
+            <summary>
+            Get the name of the component that triggered the error
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Exceptions.IncompleteBlobReferenceException">
+            <summary>
+            Thrown if a blob reference returned by an Machine Learning API is incomplete
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Exceptions.IncompleteBlobReferenceException.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <c>IncompleteBlobReferenceException</c>
+            </summary>
+            <param name="message">The message detailing the cause of this error.</param>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">
+            <summary>
+            Thrown if the Azure Machine Learning actual API response fails to deserialize to the expected type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initialize an instance of <c>ServiceResponseParsingException</c>
+            </summary>
+            <param name="apiName">The name of the API which returned an unexpected response format.</param>
+            <param name="innerException">The actual parsing error that was raised.</param>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Extensions.StringExtensions">
+            <summary>
+            Extensions for string objects
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Extensions.StringExtensions.FormatArgs(System.String,System.Object[])">
+            <summary>
+            Formats the current string in the current culture
+            </summary>
+            <param name="format">The composite format string.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Extensions.StringExtensions.FormatArgsInvariant(System.String,System.Object[])">
+            <summary>
+            Formats the current string in the an invariant culture
+            </summary>
+            <param name="format">The composite format string.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Logging.EmptyLogger">
+            <summary>
+            Represents a NOP logger that is used by default in the SDK to minimize overhead 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Logging.ILogger">
+            <summary>
+            Defines a minimalistic interface for a pluggable logger for the Azure Machine Learning SDK functionality
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogInformation(System.String,System.Object[])">
+            <summary>
+            Log an informational event message
+            </summary>
+            <param name="messageFormat">The format of the logged informational message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogVerbose(System.String,System.Object[])">
+            <summary>
+            Log a verbose event message
+            </summary>
+            <param name="messageFormat">The format of the logged verbose message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogWarning(System.String,System.Object[])">
+            <summary>
+            Log a warning event message
+            </summary>
+            <param name="messageFormat">The format of the logged warning message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogWarning(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a warning event message
+            </summary>
+            <param name="exception">Potential exception associated with this warning event.</param>
+            <param name="messageFormat">The format of the logged warning message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogError(System.String,System.Object[])">
+            <summary>
+            Log an error event message
+            </summary>
+            <param name="messageFormat">The format of the logged error message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.LogError(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log an error event message
+            </summary>
+            <param name="exception">Potential exception associated with this error event.</param>
+            <param name="messageFormat">The format of the logged error message.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.ILogger.Flush">
+            <summary>
+            Flush the write buffer of the logger instance
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Logging.SimpleLogger">
+            <summary>
+            Basic implementation of <c>ILogger</c> that relies on using a <c>TraceSource</c>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Logging.SimpleLogger.#ctor">
+            <summary>
+            Initialize a <c>SimpleLogger</c>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.AbsoluteUriExpected">
+            <summary>
+              Looks up a localized string similar to The specified uri is invalid: {0}. An absolute uri is expected..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.ApiResponseParsingFailed">
+            <summary>
+              Looks up a localized string similar to Failed to parse the service response for {0} api call. Actual error message: {1}. Please contact the Azure Machine Learning forum about this issue and provide the request id and timestamp of the request as logged by the SDK - https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=MachineLearning.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.ArgumentNotSpecified">
+            <summary>
+              Looks up a localized string similar to No value has been specified for expected argument..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.AzureBlobReferenceInvalidFormat">
+            <summary>
+              Looks up a localized string similar to The format of the blob reference returned by the service api call is invalid. Please contact the Azure Machine Learning forum about this issue and provide the request id and timestamp of the request as logged by the SDK - https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=MachineLearning.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.BatchJobWaitForCompletionTimeout">
+            <summary>
+              Looks up a localized string similar to The timeout period of {0} specified for job id={1} has been exceeded. .
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.BlobReferenceNotSpecifiedAsSasUrl">
+            <summary>
+              Looks up a localized string similar to The blob reference is not specified in its SAS token based format..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.InvalidJobId">
+            <summary>
+              Looks up a localized string similar to The specified job id: {0} is invalid. Please verify that you have passed in the correct job id..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.JobNotFound">
+            <summary>
+              Looks up a localized string similar to No job with id={0} was found for the current endpoint. Please verify that you have passed in the correct job id..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.PositiveIntegerExpected">
+            <summary>
+              Looks up a localized string similar to An integer value &gt; 0 is expected for this parameter..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.Resources.PositiveTimespanExpected">
+            <summary>
+              Looks up a localized string similar to A finite positive timespan value is expected for this parameter..
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryHandler">
+            <summary>
+            Represents the <c>DelegatingHandler</c> used to enforce the linear retry policy
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryHandler.#ctor(System.Byte,System.TimeSpan,System.Func{System.Net.Http.HttpResponseMessage,System.Boolean})">
+            <summary>
+            Initialize a new <c>LinearRetryHandler</c> instance
+            </summary>
+            <param name="maxRetries">The maximum number of retries allowed by the policy.</param>
+            <param name="retryInterval">The time interval to wait between retries.</param>
+            <param name="isRetryableCall">Delegate for the logic to determine if a call is retryable or not.</param>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy">
+            <summary>
+            Represents a simple linear retry policy, where failed calls are being retried 
+            at constat time intervals.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy">
+            <summary>
+            Represents the pattern for a retry policy that can be enforced on runtime APIs
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy.IsRetryableCall(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Determine if the current call is retryable based on the returned response
+            </summary>
+            <param name="serviceResponse">The HTTP response generated by the API call.</param>
+            <returns><c>true</c> if the call is considered retryable.</returns>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy.PolicyType">
+            <summary>
+            Get the type of this retry policy
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy.RetryDelegatingHandler">
+            <summary>
+            Get the delegating handler implementing the retry logic for this policy
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.#ctor(System.Byte,System.TimeSpan)">
+            <summary>
+            Initialize a new <c>LinearRetryPolicy</c> instance
+            </summary>
+            <param name="maxRetries">The maximum number of retries allowed by the policy.</param>
+            <param name="retryInterval">The time interval to wait between retries.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.Dispose">
+            <summary>
+            Releases any disposable resources used by the <c>LinearRetryPolicy</c> instance
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.MaxRetries">
+            <summary>
+            Get the maximum number of retries allowed by the policy.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.RetryInterval">
+            <summary>
+            Get the time interval to wait between retries.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.PolicyType">
+            <summary>
+            Get the type of this retry policy
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RetryPolicies.LinearRetryPolicy.RetryDelegatingHandler">
+            <summary>
+            Get the delegating handler implementing the retry logic for this policy
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicyType">
+            <summary>
+            The type of the retry policy to be used when calling the runtime APIs
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicyType.None">
+            <summary>
+            No retries are enforced
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicyType.Linear">
+            <summary>
+            A linear RetryPolicy is enforced
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.RuntimeClient">
+            <summary>
+            Represents the runtime client for an Azure Machine Learning endpoint
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.#ctor(System.String,System.String,Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy,Microsoft.Azure.MachineLearning.Logging.ILogger)">
+            <summary>
+            Initialize a new instance of <c>RuntimeClient</c>
+            </summary>
+            <param name="endpointUriValue">The absolute uri for the Azure Machine Learning endpoint.</param>
+            <param name="accessKey">The access key for the Azure Machine Learning endpoint.</param>
+            <param name="retryPolicy">(Optional) Retry policy for calls to the service.</param>
+            <param name="logger">(Optional) Logger instance for tracing functionality behavior.</param>
+            <exception cref="T:System.ArgumentNullException">baseServiceUri is null.</exception>
+            <exception cref="T:System.ArgumentException">Any of the provided parameters are invalid.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJob">
+            <summary>
+            Register a simple batch job (no input / parameters) for the Azure Machine Learning endpoint
+            </summary>
+            <returns>The newly registered batch job.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJob(Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest)">
+            <summary>
+            Register a batch job for the Azure Machine Learning endpoint
+            </summary>
+            <param name="jobRequest">Request information for job registration.</param>
+            <returns>The newly registered batch job.</returns>
+            <exception cref="T:System.ArgumentNullException">jobRequest is null.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.FindJobById(System.String)">
+            <summary>
+            Retrieve a batch job instance by its id
+            </summary>
+            <param name="jobId">The unique identifier of the batch job.</param>
+            <returns>The batch job instance if found.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJobAsync">
+            <summary>
+            Asynchronously register a simple batch job (no input / parameters) for the Azure Machine Learning endpoint
+            </summary>
+            <returns>A <c>Task</c> which will yield the newly registered job once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJobAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously register a simple batch job (no input / parameters) for the Azure Machine Learning endpoint
+            </summary>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A <c>Task</c> which will yield the newly registered job once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJobAsync(Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest)">
+            <summary>
+            Asynchronously register a batch job for the Azure Machine Learning endpoint
+            </summary>
+            <param name="jobRequest">Request information for job registration.</param>
+            <returns>A <c>Task</c> which will yield the newly registered job once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.RegisterBatchJobAsync(Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously register a batch job for the Azure Machine Learning endpoint
+            </summary>
+            <param name="jobRequest">Request information for job registration.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A <c>Task</c> which will yield the newly registered job once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.FindJobByIdAsync(System.String)">
+            <summary>
+            Asynchronously retrieve a batch job instance by its id
+            </summary>
+            <param name="jobId">The unique identifier of the batch job.</param>
+            <returns>A <c>Task</c> which will yield the batch job instance if found.</returns>
+            <exception cref="T:System.ArgumentException">jobId is invalid.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.RuntimeClient.FindJobByIdAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously retrieve a batch job instance by its id
+            </summary>
+            <param name="jobId">The unique identifier of the batch job.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A <c>Task</c> which will yield the batch job instance if found.</returns>
+            <exception cref="T:System.ArgumentException">jobId is invalid.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RuntimeClient.ApiProxy">
+            <summary>
+            The internal proxy for the actual runtime APIs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RuntimeClient.EndpointUri">
+            <summary>
+            The absolute base uri for the Azure Machine Learning endpoint
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.MachineLearning.RuntimeClient.AccessKey">
+            <summary>
+            The access key for the Azure Machine Learning endpoint.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Utils.Guard">
+            <summary>
+            Represents a helper class for argument validation
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.ArgumentValueIsSpecified(System.String,System.String)">
+            <summary>
+            Check that the given argument's value is specified
+            </summary>
+            <param name="argumentValue">The value of the argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.ArgumentIsNotNull(System.Object,System.String)">
+            <summary>
+            Check that the given argument's value is not null
+            </summary>
+            <param name="argumentValue">The value of the argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.IsAbsoluteUri(System.Uri,System.String)">
+            <summary>
+            Check that the given <c>Uri</c> argument is in absolute form
+            </summary>
+            <param name="uri">The URI argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.IsAbsoluteUri(System.String,System.String)">
+            <summary>
+            Check that the given URI argument is in absolute form
+            </summary>
+            <param name="uriValue">The string representation of the URI argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+            <returns>The argument's value as an <c>Uri</c> instance.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.IsFiniteTimespan(System.TimeSpan,System.String)">
+            <summary>
+            Check that the given <c>TimeSpan</c> argument is finite
+            </summary>
+            <param name="timeSpan">The <c>TimeSpan</c> argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.Guard.IsPositiveInteger(System.Int32,System.String)">
+            <summary>
+            Check that a given integer value is positive (>0)
+            </summary>
+            <param name="argumentValue">The value of the argument to validate.</param>
+            <param name="argumentName">The name of the argument to validate.</param>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Utils.RuntimeExceptionJsonConverter">
+            <summary>
+            Custom JSON converter for <c>RuntimeException</c> objects
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy">
+            <summary>
+            Represents the actual client for calling the Azure Machine Learning runtime APIs
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy.#ctor(System.Uri,System.String,Microsoft.Azure.MachineLearning.RetryPolicies.RetryPolicy,Microsoft.Azure.MachineLearning.Logging.ILogger)">
+            <summary>
+            Initialize a new instance of <c>RuntimeApiProxy</c>
+            </summary>
+            <param name="endpointUri">The absolute base uri for the Azure Machine Learning runtime service.</param>
+            <param name="apiKey">The access key for the Azure Machine Learning endpoint.</param>
+            <param name="retryPolicy">Retry policy for service API calls.</param>
+            <param name="logger">Logger instance for tracing functionality behavior.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy.RegisterBatchJobAsync(Microsoft.Azure.MachineLearning.Contracts.BatchJobRequest,System.Threading.CancellationToken)">
+            <summary>
+            Call the register batch job API for an Azure Machine Learning endpoint
+            </summary>
+            <param name="request">Request information for job registration.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a <c>Task</c> which will yield the newly registered job's unique identifier once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy.StartBatchJobAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Call the start batch job API for a job registered with an Azure Machine Learning endpoint
+            </summary>
+            <param name="jobId">Unique identifier for the batch job.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy.CheckBatchJobStatusAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Call the check batch job status API for a job registered with an Azure Machine Learning endpoint
+            </summary>
+            <param name="jobId">Unique identifier for the batch job.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a <c>Task</c> which will yield the job's current status as reported by the service API once completed.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.RuntimeApiProxy.CancelBatchJobAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Call the cancel batch job API for a job registered with an Azure Machine Learning endpoint
+            </summary>
+            <param name="jobId">Unique identifier for the batch job.</param>
+            <param name="token">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>Returns a continuation <c>Task</c> for this asynchronous operation.</returns>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.RuntimeException">If any error is reported back from the service on the API call.</exception>
+            <exception cref="T:Microsoft.Azure.MachineLearning.Exceptions.ServiceResponseParsingException">If the service response payload fails to deserialize in the expected format.</exception>
+            <exception cref="T:System.OperationCanceledException">If a task cancellation is detected.</exception>
+        </member>
+        <member name="T:Microsoft.Azure.MachineLearning.Utils.SynchronousWrapper">
+            <summary>
+            Helper for wrapping up and exposing an asynchronous call as a synchronous run
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.SynchronousWrapper.WrapAsyncCall(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Expose the passed in asynchronous call as a synchronous execution
+            </summary>
+            <param name="asyncCall">The asynchronous call to wrap around.</param>
+        </member>
+        <member name="M:Microsoft.Azure.MachineLearning.Utils.SynchronousWrapper.WrapAsyncCall``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            xpose the passed in asynchronous call as a synchronous execution
+            </summary>
+            <typeparam name="T">The generic type that would be yielded at the completion of the asynchronous execution.</typeparam>
+            <param name="asyncCall">The asynchronous call to wrap around.</param>
+            <returns>The result of the asynchronous call.</returns>
+        </member>
+    </members>
+</doc>
